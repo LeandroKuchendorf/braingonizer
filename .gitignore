@@ -1,0 +1,41 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+/.windsurf
+*.swp
+*.swo
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment - NEVER commit these files
+.env
+.env.local
+config.php
+
+# FTP / Deployment credentials - NEVER commit
+*sftp.json
+*ftp.json
+.ftpconfig
+
+# Logs
+*.log
+
+# Build artifacts
+/dist/
+/build/
+
+# Backup files
+*.bak
+*.backup
+*~
+*.orig
+
+# Personal development notes (kept locally, not published)
+/.personal-docs/

@@ -1,0 +1,1341 @@
+/* ============================================================================
+   BRAINGONIZER - GLOBAL STYLES
+   ============================================================================ */
+
+/* === 1. RESET & BASE STYLES === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === 2. CSS VARIABLES === */
+:root {
+    /* Primary Colors - Override in app-specific CSS (braingonizer.css, workonizer.css) */
+    --color-primary: #E65C9A;
+    --color-primary-light: #FF8BC4;
+    --color-primary-dark: #C73F7A;
+    --color-primary-faint: rgba(230, 92, 154, 0.1);
+    
+    /* Background Colors - Shared base */
+    --color-bg: #1a1a1a;
+    --color-surface: #241822;
+    --color-surface-hover: #2d1f2a;
+    
+    /* Text Colors - Shared */
+    --color-text: #f0f0f0;
+    --color-text-muted: #b8b8b8;
+    --color-text-dim: #888888;
+    
+    /* Accent Colors - Override in app-specific CSS */
+    --color-accent: var(--color-primary-faint);
+    --color-border: rgba(230, 92, 154, 0.2);
+    
+    /* Alert/Button Colors - Shared */
+    --color-danger: #d33;
+    --color-info: #3085d6;
+    --color-success: #28a745;
+    --color-secondary: #6c757d;
+    
+    /* Typography - Shared */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+
+/* === 3. ANIMATION CLASSES === */
+/* Custom animation timing */
+.animate__faster {
+    --animate-duration: 0.5s;
+}
+
+.animate__very-fast {
+    --animate-duration: 0.3s;
+}
+
+/* Icon hover animations */
+.icon-hover-pulse:hover {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.icon-hover-rotate:hover {
+    animation: rotateIn 0.5s ease-in-out;
+}
+
+/* Page load animations */
+.page-header-animate {
+    animation: fadeInDown 0.5s ease-out;
+}
+
+/* Card animations */
+.card-animate-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Button click animations */
+.btn-click-animate {
+    animation: rubberBand 0.5s ease-in-out;
+}
+
+/* Badge animations */
+.badge-animate {
+    animation: bounceIn 0.6s ease-out;
+}
+
+
+/* === 4. BASE TYPOGRAPHY & LAYOUT === */
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+
+/* === 4. HEADER & FOOTER === */
+header {
+    text-align: center;
+    padding: 3rem 1rem 0.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+}
+
+header .tagline {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+footer {
+    margin-top: auto;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+
+/* === 5. NAVIGATION (NAVBAR & SIDEBAR) === */
+/* Navbar */
+.navbar {
+    background-color: var(--color-surface) !important;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-brand {
+    color: var(--color-primary) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--color-border);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f0f0f0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Sidebar */
+.offcanvas {
+    background-color: var(--color-surface) !important;
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+}
+
+.nav-link {
+    color: var(--color-text) !important;
+    border-radius: 8px;
+    margin: 2px 0;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--color-surface-hover) !important;
+    color: var(--color-primary) !important;
+}
+
+.nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+
+/* === 6. DASHBOARD COMPONENTS === */
+/* Section Styles */
+section {
+    margin: 10px;
+}
+
+/* Menu Items */
+.menu-item {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 10px;
+    border: 1px solid var(--color-accent);
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.menu-item:hover {
+    background-color: var(--color-surface-hover);
+}
+
+/* Welcome Section */
+.welcome {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--color-accent);
+    transition: background-color 0.2s ease;
+}
+
+.welcome:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.welcome h2 {
+    color: var(--color-primary-light);
+    margin-bottom: 0.75rem;
+}
+
+/* Add New Tool Button */
+.add-new-tool {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-accent);
+    border-radius: 12px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.add-new-tool:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-primary);
+}
+
+
+
+/* === 7. NOTES & REMINDERS PAGE === */
+/* Reminder Cards */
+.add-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #3f994e;
+    background-color: #18241a;
+    color: #fff;
+}
+
+.add-reminder-card:hover {
+    background-color: #1f2f1f;
+    transform: scale(1.02);
+}
+
+.yellow-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #f0c95e;
+    background-color: #2a2218;
+    color: #fff;
+}
+
+.yellow-reminder-card:hover {
+    background-color: #3a2f1f;
+    transform: scale(1.02);
+}
+
+.blue-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #5e8bf0;
+    background-color: #18222a;
+    color: #fff;
+}
+
+.blue-reminder-card:hover {
+    background-color: #1f2f3a;
+    transform: scale(1.02);
+}
+
+.red-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #f05e5e;
+    background-color: #2a1818;
+    color: #fff;
+}
+
+.red-reminder-card:hover {
+    background-color: #3a1f1f;
+    transform: scale(1.02);
+}
+
+.green-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #5ef05e;
+    background-color: #182a18;
+    color: #fff;
+}
+
+.green-reminder-card:hover {
+    background-color: #1f3a1f;
+    transform: scale(1.02);
+}
+
+.lightblue-reminder-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #5ef0e4;
+    background-color: #182a2a;
+    color: #fff;
+}
+
+.lightblue-reminder-card:hover {
+    background-color: #1f3a3a;
+    transform: scale(1.02);
+}
+
+/* Reminder Card Fixed Height */
+.yellow-reminder-card,
+.blue-reminder-card,
+.red-reminder-card,
+.green-reminder-card,
+.lightblue-reminder-card,
+.add-reminder-card {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+}
+
+.yellow-reminder-card .card-body,
+.blue-reminder-card .card-body,
+.red-reminder-card .card-body,
+.green-reminder-card .card-body,
+.lightblue-reminder-card .card-body,
+.add-reminder-card .card-body {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.yellow-reminder-card .card-footer,
+.blue-reminder-card .card-footer,
+.red-reminder-card .card-footer,
+.green-reminder-card .card-footer,
+.lightblue-reminder-card .card-footer {
+    margin-top: auto;
+}
+
+/* Reminder Card Text Overflow */
+.yellow-reminder-card .card-text,
+.blue-reminder-card .card-text,
+.red-reminder-card .card-text,
+.green-reminder-card .card-text,
+.lightblue-reminder-card .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+/* Reminder Action Icons */
+.reminder-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.reminder-view-icon,
+.reminder-delete-icon {
+    cursor: pointer;
+    color: #888888;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.reminder-view-icon:hover {
+    color: #5e8bf0;
+    animation: pulse 0.5s ease-in-out;
+    transform: scale(1.2);
+}
+
+.reminder-delete-icon:hover {
+    color: #d33;
+    animation: shake 0.5s ease-in-out;
+    transform: scale(1.2);
+}
+
+/* Reminders Carousel Styling */
+#remindersCarousel {
+    padding: 0 50px;
+    position: relative;
+}
+
+/* Carousel Controls */
+#remindersCarousel .carousel-control-prev,
+#remindersCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+#remindersCarousel .carousel-control-prev {
+    left: 0;
+}
+
+#remindersCarousel .carousel-control-next {
+    right: 0;
+}
+
+#remindersCarousel .carousel-control-prev:hover,
+#remindersCarousel .carousel-control-next:hover {
+    opacity: 1;
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-primary);
+}
+
+#remindersCarousel .carousel-control-prev-icon,
+#remindersCarousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+/* Carousel Indicators */
+#remindersCarousel .carousel-indicators {
+    position: static;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+#remindersCarousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-text-dim);
+    border: none;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+#remindersCarousel .carousel-indicators button.active {
+    background-color: var(--color-primary);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+#remindersCarousel .carousel-indicators button:hover {
+    opacity: 0.8;
+}
+
+/* Carousel Item Padding */
+#remindersCarousel .carousel-item {
+    padding: 10px 0;
+}
+
+/* Mobile: Hide arrows, show only indicators */
+@media (max-width: 767px) {
+    #remindersCarousel {
+        padding: 0 10px;
+    }
+    
+    #remindersCarousel .carousel-control-prev,
+    #remindersCarousel .carousel-control-next {
+        display: none;
+    }
+}
+
+/* Notes Tables */
+/* Grey Table */
+
+.grey-notes-table {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #444444;
+    width: 100%;
+    padding-block: 10px;
+}
+
+.grey-notes-table thead th {
+    background-color: #333333;
+    color: #ffffff;
+    border-bottom: 1px solid #444444;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.grey-notes-table tbody tr {
+    background-color: #2a2a2a;
+    transition: background-color 0.2s ease;
+}
+
+.grey-notes-table tbody tr:nth-child(odd) {
+    background-color: #303030;
+}
+
+.grey-notes-table tbody tr:hover {
+    background-color: #383838;
+}
+
+.grey-notes-table td,
+.grey-notes-table th {
+    border-color: #444444;
+    padding: 12px;
+}
+
+/* Pink Table */
+
+.pink-notes-table {
+    background-color: #241822;
+    color: #ffffff;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #7c2e6f;
+    width: 100%;
+    padding-block: 10px;
+}
+
+.pink-notes-table thead th {
+    background-color: #2d1f2a;
+    color: #ffffff;
+    border-bottom: 1px solid #7c2e6f;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.pink-notes-table tbody tr {
+    background-color: #241822;
+    transition: background-color 0.2s ease;
+}
+
+.pink-notes-table tbody tr:nth-child(odd) {
+    background-color: #2a1f25;
+}
+
+.pink-notes-table tbody tr:hover {
+    background-color: #312430;
+}
+
+.pink-notes-table td,
+.pink-notes-table th {
+    border-color: #7c2e6f;
+    padding: 12px;
+}
+
+/* Common table styles */
+.grey-notes-table th.text-right,
+.grey-notes-table td.text-right,
+.pink-notes-table th.text-right,
+.pink-notes-table td.text-right {
+    text-align: right !important;
+    white-space: nowrap;
+    width: 120px;
+}
+
+.grey-notes-table .text-right i,
+.pink-notes-table .text-right i {
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.grey-notes-table .text-right i:hover,
+.pink-notes-table .text-right i:hover {
+    color: var(--color-primary);
+    transform: scale(1.2);
+}
+
+.grey-notes-table .text-right .fa-eye:hover,
+.pink-notes-table .text-right .fa-eye:hover {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.grey-notes-table .text-right .fa-trash:hover,
+.pink-notes-table .text-right .fa-trash:hover {
+    color: var(--color-danger);
+    animation: shake 0.5s ease-in-out;
+}
+
+/* No Results Placeholder */
+.no-results-placeholder {
+    background-color: var(--color-surface);
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    padding: 3rem 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.no-results-placeholder i {
+    color: var(--color-text-dim);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.no-results-placeholder:hover i {
+    color: var(--color-primary);
+}
+
+.no-results-placeholder h4 {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.no-results-placeholder p {
+    color: var(--color-text-dim);
+    font-size: 0.95rem;
+}
+
+.no-results-placeholder a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.no-results-placeholder a:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+/* === 8. UNIFIED BUTTON STYLES === */
+/* Header Icon Buttons (Add, Filter, etc.) */
+#add-reminder-btn,
+#add-notes-btn,
+#add-tasks-btn,
+#add-project-btn,
+#add-idea-btn,
+#add-idea-header-btn,
+#add-file-header-btn,
+#add-research-header-btn,
+#add-category-btn,
+#filter-reminders-btn,
+#filter-notes-btn,
+#filter-research-btn {
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#add-reminder-btn:hover,
+#add-notes-btn:hover,
+#add-tasks-btn:hover,
+#add-project-btn:hover,
+#add-idea-btn:hover,
+#add-idea-header-btn:hover,
+#add-file-header-btn:hover,
+#add-research-header-btn:hover,
+#add-category-btn:hover {
+    color: var(--color-text);
+    animation: rotateIn 0.5s ease-in-out;
+}
+
+#filter-reminders-btn:hover,
+#filter-notes-btn:hover,
+#filter-research-btn:hover {
+    color: var(--color-text);
+    animation: pulse 0.5s ease-in-out;
+}
+
+
+/* === 9. FILTER BUTTONS === */
+.filter-btn {
+    background-color: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text) !important;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--color-surface-hover) !important;
+    color: var(--color-text) !important;
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(230, 92, 154, 0.3);
+    animation: rubberBand 0.5s ease-in-out;
+}
+
+.filter-btn.active:hover {
+    background-color: var(--color-primary-dark) !important;
+    transform: translateY(-1px);
+}
+
+
+/* === 10. LINKS PAGE === */
+/* Category Cards */
+
+.links-category-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.links-category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 92, 154, 0.15);
+}
+
+.links-category-card .card-header {
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 1.25rem;
+}
+
+.links-category-card .card-body {
+    padding: 0;
+}
+
+.links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links-list-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 1.25rem;
+    transition: background-color 0.2s ease;
+}
+
+.links-list-item:last-child {
+    border-bottom: none;
+}
+
+.links-list-item:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.links-list-item a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.links-list-item a:hover {
+    color: var(--color-primary-light);
+}
+
+.links-list-item .link-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.links-list-item .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.links-empty-state {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--color-text-dim);
+    font-style: italic;
+}
+
+/* Category Color Themes */
+/* Work (Blue) */
+
+.category-work {
+    background-color: #182a3a;
+    border-color: #5e8bf0;
+}
+
+.category-work .card-header {
+    background-color: #1a2f42;
+    border-color: #5e8bf0;
+}
+
+.category-work .links-list-item:hover {
+    background-color: #1f3550;
+}
+
+.category-work .links-list-item a:hover {
+    color: #5e8bf0;
+}
+
+/* University (Green) */
+.category-university {
+    background-color: #18241a;
+    border-color: #3f994e;
+}
+
+.category-university .card-header {
+    background-color: #1a2a1d;
+    border-color: #3f994e;
+}
+
+.category-university .links-list-item:hover {
+    background-color: #1f3022;
+}
+
+.category-university .links-list-item a:hover {
+    color: #3f994e;
+}
+
+/* Generic (Gray) */
+.category-generic {
+    background-color: #2a2a2a;
+    border-color: #888888;
+}
+
+.category-generic .card-header {
+    background-color: #303030;
+    border-color: #888888;
+}
+
+.category-generic .links-list-item:hover {
+    background-color: #353535;
+}
+
+.category-generic .links-list-item a:hover {
+    color: #b8b8b8;
+}
+
+/* Personal (Pink) */
+.category-personal {
+    background-color: #241822;
+    border-color: var(--color-primary);
+}
+
+.category-personal .card-header {
+    background-color: #2d1f2a;
+    border-color: var(--color-primary);
+}
+
+.category-personal .links-list-item:hover {
+    background-color: #342030;
+}
+
+.category-personal .links-list-item a:hover {
+    color: var(--color-primary-light);
+}
+
+/* Resources (Yellow) */
+.category-resources {
+    background-color: #2a2218;
+    border-color: #f0c95e;
+}
+
+.category-resources .card-header {
+    background-color: #322818;
+    border-color: #f0c95e;
+}
+
+.category-resources .links-list-item:hover {
+    background-color: #3a2f20;
+}
+
+.category-resources .links-list-item a:hover {
+    color: #f0c95e;
+}
+
+/* Entertainment (Cyan) */
+.category-entertainment {
+    background-color: #182a2a;
+    border-color: #5ef0e4;
+}
+
+.category-entertainment .card-header {
+    background-color: #1a3030;
+    border-color: #5ef0e4;
+}
+
+.category-entertainment .links-list-item:hover {
+    background-color: #1f3838;
+}
+
+.category-entertainment .links-list-item a:hover {
+    color: #5ef0e4;
+}
+
+
+/* Category Dropdown Menu */
+
+.links-category-card .dropdown-menu {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.links-category-card .dropdown-item {
+    color: var(--color-text);
+    transition: background-color 0.2s ease;
+}
+
+.links-category-card .dropdown-item:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+}
+
+.links-category-card .dropdown-item.text-danger:hover {
+    background-color: rgba(240, 94, 94, 0.1);
+    color: #f05e5e;
+}
+
+/* === 11. UTILITY CLASSES === */
+/* Text Color Classes */
+.text-pink {
+    color: var(--color-primary) !important;
+}
+
+.text-grey {
+    color: var(--color-text-muted) !important;
+}
+
+.text-muted {
+    color: var(--color-text-dim) !important;
+}
+
+.text-danger {
+    color: var(--color-danger) !important;
+}
+
+.text-info {
+    color: var(--color-info) !important;
+}
+
+/* Background Color Classes */
+.bg-danger {
+    background-color: var(--color-danger) !important;
+}
+
+.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+/* Custom Badge Colors */
+.bg-primary {
+    background-color: #3085d6 !important;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+.bg-warning {
+    background-color: rgb(171 132 15) !important;
+}
+
+.bg-pink {
+    background-color: #E65C9A !important;
+}
+
+.bg-purple {
+    background-color: #7952b3 !important;
+}
+
+/* Layout Utility Classes */
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.d-inline-flex-center {
+    display: inline-flex;
+    align-items: center;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+/* Add Section Button */
+.add-section {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-surface);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.add-section:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-surface-hover);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 92, 154, 0.2);
+}
+
+.add-section i {
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+/* Edit Button */
+.edit-btn {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+.edit-btn:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.edit-btn i {
+    font-size: 1rem;
+}
+
+/* === 12. RESEARCH FILES SECTION === */
+/* Files Section Container */
+.files-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-bg);
+    border-radius: 12px;
+}
+
+.files-section h3 {
+    color: var(--color-primary-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* File Card */
+.file-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.file-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 92, 154, 0.15);
+    border-color: var(--color-primary);
+}
+
+/* File Icon */
+.file-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.file-icon.pdf {
+    background-color: rgba(240, 94, 94, 0.2);
+    color: #f05e5e;
+}
+
+.file-icon.doc {
+    background-color: rgba(94, 139, 240, 0.2);
+    color: #5e8bf0;
+}
+
+.file-icon.image {
+    background-color: rgba(63, 153, 78, 0.2);
+    color: #3f994e;
+}
+
+.file-icon.excel {
+    background-color: rgba(94, 240, 228, 0.2);
+    color: #5ef0e4;
+}
+
+.file-icon.generic {
+    background-color: rgba(136, 136, 136, 0.2);
+    color: #888888;
+}
+
+/* File Info */
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-meta {
+    color: var(--color-text-dim);
+    font-size: 0.8rem;
+}
+
+/* File Actions */
+.file-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.file-card:hover .file-actions {
+    opacity: 1;
+}
+
+.file-action-icon {
+    cursor: pointer;
+    color: var(--color-text-dim);
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.file-action-icon:hover {
+    color: var(--color-primary);
+}
+
+.file-action-icon.delete:hover {
+    color: var(--color-danger);
+}
+
+/* Upload File Card */
+.file-upload-card {
+    background-color: transparent;
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-text-muted);
+}
+
+.file-upload-card:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 92, 154, 0.2);
+}
+
+.file-upload-card i {
+    font-size: 2rem;
+    transition: transform 0.2s ease;
+}
+
+.file-upload-card:hover i {
+    transform: scale(1.1);
+}
+
+.file-upload-card span {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* === SWEETALERT CUSTOM STYLING === */
+.swal2-icon-no-border {
+    border: none !important;
+    background: transparent !important;
+}
+
+/* SweetAlert2 Dark Theme Modals */
+.swal2-popup {
+    overflow-x: hidden !important;
+}
+
+.swal2-html-container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* SweetAlert2 Input Fields */
+.swal2-input,
+.swal2-textarea,
+.swal2-select {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.5em auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Select2 Integration with SweetAlert2 */
+.select2-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.select2-container .select2-selection,
+.select2-container--bootstrap-5 .select2-selection,
+.select2-container--bootstrap-5 .select2-selection--multiple,
+.select2-container--bootstrap-5 .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.select2-container--default .select2-selection--single {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Input field inside Select2 */
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-search__field {
+    background-color: transparent !important;
+    color: #e0e0e0 !important;
+}
+
+.select2-container--bootstrap-5 .select2-selection {
+    min-height: 38px !important;
+}
+
+/* Select2 selected items (tags) */
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice,
+.select2-selection__choice {
+    background-color: #444 !important;
+    border-color: #666 !important;
+    color: #e0e0e0 !important;
+}
+
+.select2-selection__choice__remove {
+    color: #e0e0e0 !important;
+}
+
+/* Select2 placeholder */
+.select2-selection__placeholder {
+    color: #888 !important;
+}
+
+/* Select2 Dropdown Dark Theme */
+.select2-dropdown {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+}
+
+.select2-results__option {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+}
+
+.select2-results__option--highlighted,
+.select2-results__option--highlighted[aria-selected] {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.select2-results__option[aria-selected="true"] {
+    background-color: #1e1e1e !important;
+}
+
+.select2-search__field {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+.select2-search--dropdown .select2-search__field {
+    background-color: #1e1e1e !important;
+    border: 1px solid #444 !important;
+    color: #e0e0e0 !important;
+}
+
+/* SweetAlert2 Select Options - Darker Text */
+.swal2-select option {
+    color: #333333 !important;
+}
+
+/* ============================================================================
+   END OF GLOBAL STYLES
+   ============================================================================ */

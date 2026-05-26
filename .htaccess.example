@@ -1,0 +1,36 @@
+# Braingonizer - Apache Configuration Example
+# Copy this to .htaccess in the public/ directory and adjust as needed
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Enable XSS protection in older browsers
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Control referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(env|log|bak|backup|sql|json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# PHP error display (disable in production)
+# php_flag display_errors Off
+# php_flag log_errors On
+
+# URL Rewriting (if needed)
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteBase /
+# </IfModule>

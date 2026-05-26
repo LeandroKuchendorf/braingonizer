@@ -1,0 +1,25 @@
+/* ============================================================================
+   BRAINGONIZER - THEME OVERRIDES
+   ============================================================================ */
+
+/* Override CSS variables for Braingonizer's pink/magenta theme */
+:root {
+    /* Primary Colors - Pink/Magenta */
+    --color-primary: #E65C9A;
+    --color-primary-light: #FF8BC4;
+    --color-primary-dark: #C73F7A;
+    --color-primary-faint: rgba(230, 92, 154, 0.1);
+    
+    /* Accent Colors */
+    --color-accent: var(--color-primary-faint);
+    --color-border: rgba(230, 92, 154, 0.2);
+}
+
+/* Braingonizer body gradient - dark pink theme */
+body {
+    background: linear-gradient(135deg, #1a0f14 0%, #2d1f2a 50%, #1a0f14 100%);
+}
+
+/* ============================================================================
+   END OF BRAINGONIZER THEME
+   ============================================================================ */
