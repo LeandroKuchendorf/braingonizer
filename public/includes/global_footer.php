@@ -1,5 +1,5 @@
     <footer>
-    <p>&copy; <?php echo date('Y'); ?> Braingonizer</p>
+    <p>&copy; <?php echo date('Y'); ?> Braingonizer Version 1.0</p>
 </footer>
 
 <!-- Bootstrap JS -->
